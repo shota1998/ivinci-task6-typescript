@@ -1,0 +1,5 @@
+export const ADD_ITEM = 'ADD_ITEM';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const UPDATE_CART_REDUCER = 'UPDATE_CART_REDUCER';
+
+export const FETCH_CART_ITEM_REQUEST = 'FETCH_CART_ITEM_REQUEST';

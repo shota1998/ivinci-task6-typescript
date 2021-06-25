@@ -3,7 +3,12 @@ import { Button } from '@material-ui/core';
 
 import useStyles from './ChangeQuantityButton.style';
 
-const ChangeQuantityButton = React.memo(({ onClick, children }) => {
+interface IProps {
+  onClick: () => {};
+  children: React.ReactNode;
+}
+
+const ChangeQuantityButton: React.FC<IProps> = ({ onClick, children }) => {
   console.log('ChangeQuantityButton');
 
   const classes = useStyles();
@@ -15,6 +20,6 @@ const ChangeQuantityButton = React.memo(({ onClick, children }) => {
       </Button>
     </div>
   );
-});
+};
 
-export default ChangeQuantityButton;
+export default React.memo(ChangeQuantityButton);

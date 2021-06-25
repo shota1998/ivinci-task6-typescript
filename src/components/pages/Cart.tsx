@@ -1,18 +1,20 @@
 import React from 'react';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Typography, Grid, Container } from '@material-ui/core';
 
-import {IRootState, IItem } from '../../interface'
+import { IRootState, IItem } from '../../interface';
 import useStyles from './Cart.style';
-import CartItem from '../CartItem.jsx';
+import CartItem from '../CartItem';
 
 const Cart = () => {
   console.log('--- Cart()');
-  useSelector((state: IRootState): number => state.cart.items.length)
+  useSelector((state: IRootState): number => state.cart.items.length);
 
   const classes = useStyles();
-  const items: IItem[] = useSelector<IRootState, IItem[]>(state => state.cart.items);
-  
+  const items: IItem[] = useSelector<IRootState, IItem[]>(
+    (state) => state.cart.items
+  );
+
   return (
     <>
       <Container maxWidth='sm'>
@@ -33,7 +35,7 @@ const Cart = () => {
         </Grid>
       </Container>
     </>
-  ) 
+  );
 };
 
 export default Cart;

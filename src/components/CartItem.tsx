@@ -8,17 +8,17 @@ import {
   Card,
 } from '@material-ui/core';
 
-import { IItem } from '../interface'
+import { IItem } from '../interface';
 import useStyles from './CartItem.style';
 import * as selector from '../redux/selectors';
 import { addItem, removeItem } from '../redux/actions';
-import ChangeQuantityButton from './UI/ChangeQuantityButton.jsx';
+import ChangeQuantityButton from './UI/ChangeQuantityButton';
 
 interface IProps {
-  item: IItem
+  item: IItem;
 }
 
-const CartItem: React.FC<IProps> = React.memo(({ item }) => {
+const CartItem: React.FC<IProps> = ({ item }) => {
   console.log('--- CartItem()');
   useSelector((state) => selector.getOneQuantity(state, item.id));
 
@@ -43,9 +43,7 @@ const CartItem: React.FC<IProps> = React.memo(({ item }) => {
             <Typography gutterBottom variant='h5'>
               {item.title}
             </Typography>
-            <Typography className={classes.price}>
-              ${item.value * item.quantity}
-            </Typography>
+            <Typography>${item.value * item.quantity}</Typography>
             <Typography>(${item.value}/item)</Typography>
             <Typography>x {item.quantity}</Typography>
           </CardContent>
@@ -61,6 +59,6 @@ const CartItem: React.FC<IProps> = React.memo(({ item }) => {
       </Grid>
     </>
   );
-});
+};
 
-export default CartItem;
+export default React.memo(CartItem);

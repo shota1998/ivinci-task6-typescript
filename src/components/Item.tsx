@@ -8,12 +8,16 @@ import {
   Card,
 } from '@material-ui/core';
 
-import { IItem } from '../interface'
+import { IItem } from '../interface';
 import { addItem } from '../redux/actions';
 import useStyles from './Item.style';
-import AddCartButton from './UI/AddCartButton.jsx';
+import AddCartButton from './UI/AddCartButton';
 
-const Item: React.FC<IItem> = ({ item }) => {
+interface IProps {
+  item: IItem;
+}
+
+const Item: React.FC<IProps> = ({ item }) => {
   console.log('--- Item()');
 
   const classes = useStyles();

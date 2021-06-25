@@ -3,7 +3,11 @@ import { Button } from '@material-ui/core';
 
 import useStyles from './AddCartButton.style';
 
-const AddCartButton = React.memo(({ onClick, children }) => {
+interface IProps {
+  onClick: () => {};
+}
+
+const AddCartButton: React.FC<IProps> = ({ onClick, children }) => {
   console.log('--- AddCartButton()');
 
   const classes = useStyles();
@@ -15,6 +19,6 @@ const AddCartButton = React.memo(({ onClick, children }) => {
       </Button>
     </div>
   );
-});
+};
 
-export default AddCartButton;
+export default React.memo(AddCartButton);

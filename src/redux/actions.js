@@ -11,7 +11,7 @@ export const updateCartReducer = (items) => ({
 
 export const addItem = (item) => ({
   type: actionType.ADD_ITEM,
-  payload: { item },
+  payload: item,
 });
 
 export const removeItem = (item) => ({

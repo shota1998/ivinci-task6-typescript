@@ -1,21 +1,23 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Typography, Grid, Container } from '@material-ui/core';
+
+import { IItem } from '../../interface';
 import { getItems } from '../../redux/api/items';
 import useStyles from './SelectItem.style';
-import Item from '../Item.jsx';
+import Item from '../Item';
 
 const SelectItem = () => {
   console.log('--- SelectItem()');
-  
+
   const classes = useStyles();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<IItem[]>([]);
 
   const initItems = useCallback(async () => {
-    const { data, error } = await getItems();
-    if (error) {
-      console.log(error);
+    const result = await getItems();
+    if (result[0]) {
+      setItems(result[1] as IItem[]);
     } else {
-      setItems(data);
+      console.log(result[1]);
     }
   }, []);
 
